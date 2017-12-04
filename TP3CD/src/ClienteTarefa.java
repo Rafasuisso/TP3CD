@@ -1,4 +1,6 @@
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
@@ -20,10 +22,19 @@ public class ClienteTarefa {
         this.cliente = cliente;
     }
     
+    public static boolean verifica(){
+        return true;
+    }
         
     public void run(){
         try{
          ObjectInputStream   entrada = new ObjectInputStream(cliente.getInputStream());
+         Tarefa tarefa = (Tarefa)entrada.readObject();
+         
+         DataOutputStream dado = new DataOutputStream(cliente.getOutputStream()); 
+         dado.writeBoolean(verifica());
+         
+                 
         }catch(Exception e){
             System.out.println("Excecao ocorrida na thread: " + e.getMessage());
             

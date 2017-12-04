@@ -9,5 +9,7 @@
  * @author FaelT
  */
 public class Tarefa {
-    
+    public Tarefa(){
+        
+    }
 }

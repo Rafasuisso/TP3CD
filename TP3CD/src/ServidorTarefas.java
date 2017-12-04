@@ -30,6 +30,7 @@ public class ServidorTarefas extends Thread {
             while(true){
                 Socket cliente = servidor.accept();
                 new ClienteTarefa(cliente).start();
+                
                 ObjectOutputStream saida = new ObjectOutputStream(cliente.getOutputStream());
             }
             
