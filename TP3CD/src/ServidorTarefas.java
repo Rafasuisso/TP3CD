@@ -15,8 +15,11 @@ import java.util.List;
  *
  * @author FaelT
  */
-public class ServidorTarefas extends Thread {
+public class ServidorTarefas {
     List<Tarefa> bag = new ArrayList<Tarefa>();
+    // List<ClienteTarefa> clientes = new ArrayList<ClienteTarefa>();
+    //List<Boolean> resposta = new ArrayList<Boolean>();
+    
     public static void main(String []args){
         if(args.length<1){
             System.out.println("Informe a porta a ser ouvida pelos servidor");
@@ -31,7 +34,11 @@ public class ServidorTarefas extends Thread {
                 Socket cliente = servidor.accept();
                 new ClienteTarefa(cliente).start();
                 
+                
                 ObjectOutputStream saida = new ObjectOutputStream(cliente.getOutputStream());
+                
+                
+                
             }
             
         }catch (Exception e) {

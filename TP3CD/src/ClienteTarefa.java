@@ -15,24 +15,23 @@ import java.net.Socket;
  *
  * @author FaelT
  */
-public class ClienteTarefa {
+public class ClienteTarefa extends Thread{
     private Socket cliente;
     
     public ClienteTarefa(Socket cliente){
         this.cliente = cliente;
     }
     
-    public static boolean verifica(){
-        return true;
-    }
+    
         
     public void run(){
         try{
          ObjectInputStream   entrada = new ObjectInputStream(cliente.getInputStream());
          Tarefa tarefa = (Tarefa)entrada.readObject();
+         boolean resposta = tarefa.verifica();
          
          DataOutputStream dado = new DataOutputStream(cliente.getOutputStream()); 
-         dado.writeBoolean(verifica());
+         dado.writeBoolean(resposta);
          
                  
         }catch(Exception e){

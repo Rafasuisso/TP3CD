@@ -12,4 +12,8 @@ public class Tarefa {
     public Tarefa(){
         
     }
+    
+    public boolean verifica(){
+        return true;
+    }
 }
