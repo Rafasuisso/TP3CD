@@ -18,12 +18,17 @@ import java.util.List;
 public class ServidorTarefas {
     static List<Tache> sac = new ArrayList<Tache>();
     // List<ClienteTarefa> clientes = new ArrayList<ClienteTarefa>();
-    List<Boolean> resposta = new ArrayList<Boolean>();
-    double dedans = 0;
+    static List<Boolean> resposta = new ArrayList<Boolean>();
+    static double dedans = 0;
     
+    static int taille = resposta.size();
     static void numResp(){
-     
-        
+             for(int i = 0; i <taille; i++){
+                 if(resposta.get(i)==true){
+                     dedans +=1;
+                 }
+             }
+             
     }
     
     public static void main(String []args){
