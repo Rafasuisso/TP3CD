@@ -27,8 +27,8 @@ public class ClienteTarefa extends Thread{
     public void run(){
         try{
          ObjectInputStream   entrada = new ObjectInputStream(cliente.getInputStream());
-         Tarefa tarefa = (Tarefa)entrada.readObject();
-         boolean resposta = tarefa.verifica();
+         Tache tarefa = (Tache)entrada.readObject();
+         boolean resposta = tarefa.verifier();
          
          DataOutputStream dado = new DataOutputStream(cliente.getOutputStream()); 
          dado.writeBoolean(resposta);
